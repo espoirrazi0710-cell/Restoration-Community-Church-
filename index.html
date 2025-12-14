@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restoration Community Church</title>
 
   <!-- GOOGLE FONT -->
@@ -17,8 +17,8 @@
     }
 
     body {
-      color: #222;
       line-height: 1.7;
+      color: #222;
     }
 
     /* HEADER */
@@ -26,30 +26,22 @@
       background: #111;
       color: #fff;
       padding: 15px 30px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .logo {
+    .logo-box {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .logo img {
+    .logo-box img {
       height: 45px;
-      width: auto;
-    }
-
-    header h1 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      white-space: nowrap;
     }
 
     nav a {
@@ -65,37 +57,27 @@
 
     /* HERO */
     .hero {
-      height: 85vh;
-      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-      url("IMG_7545.JPG") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      padding: 90px 20px;
+      background: #000;
       color: white;
-      padding: 20px;
+      text-align: center;
+    }
+
+    .hero img {
+      max-width: 300px;
+      border-radius: 14px;
+      margin-bottom: 25px;
     }
 
     .hero h2 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 15px;
     }
 
     .hero p {
       font-size: 1.2rem;
-      max-width: 700px;
+      max-width: 750px;
       margin: auto;
-    }
-
-    .hero a {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 32px;
-      background: gold;
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 30px;
     }
 
     /* SECTIONS */
@@ -106,60 +88,55 @@
 
     section h3 {
       font-size: 2.2rem;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .light {
-      background: #f5f5f5;
+      background: #f4f4f4;
     }
 
-    .section-content {
+    .content {
       max-width: 950px;
       margin: auto;
       text-align: left;
     }
 
-    .section-content h4 {
+    .content h4 {
       margin-top: 30px;
-      margin-bottom: 10px;
       font-size: 1.4rem;
     }
 
-    .section-content p {
-      margin-bottom: 15px;
+    .content p {
+      margin-top: 10px;
       font-size: 1.05rem;
     }
 
-    /* IMAGE BLOCKS */
-    .image-row {
+    /* SERVICES */
+    .services ul {
+      list-style: none;
+      font-size: 1.1rem;
+    }
+
+    .services li {
+      margin-bottom: 10px;
+    }
+
+    /* IMAGE GRID */
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
       margin-top: 30px;
     }
 
-    .image-card img {
+    .card img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
-    .image-card h5 {
-      text-align: center;
+    .card h5 {
       margin-top: 10px;
       font-size: 1rem;
-      font-weight: 600;
-    }
-
-    /* SERVICES */
-    .services ul {
-      list-style: none;
-      max-width: 500px;
-      margin: auto;
-      font-size: 1.1rem;
-    }
-
-    .services li {
-      padding: 10px 0;
     }
 
     /* CONTACT */
@@ -184,7 +161,6 @@
       border: none;
       font-size: 1rem;
       cursor: pointer;
-      border-radius: 5px;
     }
 
     form button:hover {
@@ -195,17 +171,13 @@
     /* FOOTER */
     footer {
       background: #111;
-      color: #fff;
+      color: white;
       text-align: center;
       padding: 25px 10px;
       font-size: 0.9rem;
     }
 
     @media(max-width: 768px) {
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-
       nav {
         display: none;
       }
@@ -217,35 +189,31 @@
 
 <!-- HEADER -->
 <header>
-  <div class="logo">
-    <<img src="logo.png" alt="Restoration Community Church Logo">
-    <h1>Restoration Community Church</h1>
+  <div class="logo-box">
+    <img src="logo.png" alt="Church Logo">
+    <strong>Restoration Community Church</strong>
   </div>
 
   <nav>
     <a href="#home">Home</a>
     <a href="#mission">Mission</a>
     <a href="#services">Services</a>
-    <a href="#pastor">Leadership</a>
+    <a href="#leadership">Leadership</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div>
-    <img src="IMG_7545.JPG" alt="Pastor and Wife"
-         style="max-width:300px; border-radius:12px; margin-bottom:20px;">
-    <h2>Welcome to Restoration Community Church</h2>
-    <p>Restoring lives, families, and nations through the love and power of Jesus Christ.</p>
-    <a href="#contact">Join Us</a>
-  </div>
+  <img src="IMG_7545.JPG" alt="Pastor and Wife">
+  <h2>Welcome to Restoration Community Church</h2>
+  <p>Restoring lives, families, and nations through the love and power of Jesus Christ.</p>
 </section>
 
-<!-- MISSION & CORE VALUES -->
+<!-- MISSION -->
 <section id="mission" class="light">
   <h3>Mission & Core Values</h3>
-  <div class="section-content">
+  <div class="content">
 
     <h4>Mission Statement</h4>
     <p>
@@ -257,26 +225,26 @@
     <h4>Our Core Values (Acts 2:42)</h4>
     <p>
       “They devoted themselves to the apostles’ teaching and to fellowship,
-      to the breaking of bread and to prayer.” — <strong>Acts 2:42</strong>
+      to the breaking of bread and to prayer.” — Acts 2:42
     </p>
 
     <h4>1. Biblical Teaching</h4>
-    <p>We are devoted to the Word of God as the foundation of our faith, doctrine, and daily living.</p>
+    <p>We are devoted to the Word of God as the foundation of our faith.</p>
 
     <h4>2. Fellowship</h4>
-    <p>We value genuine Christian community where believers love, support, and encourage one another.</p>
+    <p>We value genuine Christian community united in Christ.</p>
 
     <h4>3. Breaking of Bread</h4>
-    <p>We honor communion and shared meals as expressions of unity and remembrance of Christ’s sacrifice.</p>
+    <p>We honor communion and shared meals as expressions of unity.</p>
 
     <h4>4. Prayer</h4>
-    <p>We are a praying church, fully dependent on God in every area of life and ministry.</p>
+    <p>We are a praying church, fully dependent on God.</p>
 
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services" id="services">
+<section id="services" class="services">
   <h3>Service Times</h3>
   <ul>
     <li><strong>Sunday Worship Service</strong> – 1:00 PM to 3:00 PM</li>
@@ -285,21 +253,21 @@
 </section>
 
 <!-- LEADERSHIP -->
-<section id="pastor" class="light">
+<section id="leadership" class="light">
   <h3>Our Leadership</h3>
-  <div class="image-row">
+  <div class="grid">
 
-    <div class="image-card">
+    <div class="card">
       <img src="IMG_7542.JPG" alt="Pastor Banza Mukalay">
       <h5>Pastor Banza Mukalay<br>Founder & Lead Pastor<br>📞 616-589-4793</h5>
     </div>
 
-    <div class="image-card">
+    <div class="card">
       <img src="IMG_7540.JPG" alt="Assistant Pastor">
       <h5>Assistant Pastor</h5>
     </div>
 
-    <div class="image-card">
+    <div class="card">
       <img src="IMG_7545.JPG" alt="Pastor and Wife">
       <h5>Pastor & Wife</h5>
     </div>
@@ -310,12 +278,23 @@
 <!-- YOUTH -->
 <section class="light">
   <h3>Youth Ministry</h3>
-  <div class="image-row">
-    <div class="image-card">
+  <div class="grid">
+    <div class="card">
       <img src="IMG_3483.JPG" alt="Youth Ministry">
       <h5>Raising the Next Generation in Christ</h5>
     </div>
   </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h3>Contact Us</h3>
+  <form onsubmit="event.preventDefault(); alert('Thank you for contacting us!');">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
 <!-- FOOTER -->
@@ -323,14 +302,5 @@
   <p>© 2025 Restoration Community Church | All Rights Reserved</p>
 </footer>
 
-<script>
-  function sendMessage(e) {
-    e.preventDefault();
-    alert("Thank you for contacting Restoration Community Church. We will get back to you soon.");
-  }
-</script>
-
 </body>
 </html>
-
-
