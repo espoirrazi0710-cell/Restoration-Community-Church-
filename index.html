@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restoration Community Church</title>
 
-  <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -21,14 +20,13 @@
       color: #222;
     }
 
-    /* HEADER */
     header {
       background: #111;
       color: #fff;
       padding: 15px 30px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -57,20 +55,19 @@
 
     /* HERO */
     .hero {
-      padding: 90px 20px;
-      background: #000;
-      color: white;
+      height: 85vh;
+      background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+      url("church.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-    }
-
-    .hero img {
-      max-width: 300px;
-      border-radius: 14px;
-      margin-bottom: 25px;
+      color: white;
+      padding: 20px;
     }
 
     .hero h2 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin-bottom: 15px;
     }
 
@@ -80,7 +77,6 @@
       margin: auto;
     }
 
-    /* SECTIONS */
     section {
       padding: 70px 30px;
       text-align: center;
@@ -111,7 +107,6 @@
       font-size: 1.05rem;
     }
 
-    /* SERVICES */
     .services ul {
       list-style: none;
       font-size: 1.1rem;
@@ -121,7 +116,6 @@
       margin-bottom: 10px;
     }
 
-    /* IMAGE GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -139,7 +133,6 @@
       font-size: 1rem;
     }
 
-    /* CONTACT */
     form {
       max-width: 500px;
       margin: auto;
@@ -159,7 +152,6 @@
       background: #111;
       color: white;
       border: none;
-      font-size: 1rem;
       cursor: pointer;
     }
 
@@ -168,7 +160,6 @@
       color: black;
     }
 
-    /* FOOTER */
     footer {
       background: #111;
       color: white;
@@ -187,10 +178,9 @@
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-box">
-    <img src="logo.png" alt="Church Logo">
+    <img src="logo.PNG" alt="Restoration Community Church Logo">
     <strong>Restoration Community Church</strong>
   </div>
 
@@ -203,14 +193,13 @@
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero" id="home">
-  <img src="IMG_7545.JPG" alt="Pastor and Wife">
-  <h2>Welcome to Restoration Community Church</h2>
-  <p>Restoring lives, families, and nations through the love and power of Jesus Christ.</p>
+  <div>
+    <h2>Welcome to Restoration Community Church</h2>
+    <p>Restoring lives, families, and nations through the love and power of Jesus Christ.</p>
+  </div>
 </section>
 
-<!-- MISSION -->
 <section id="mission" class="light">
   <h3>Mission & Core Values</h3>
   <div class="content">
@@ -243,7 +232,6 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services" class="services">
   <h3>Service Times</h3>
   <ul>
@@ -252,41 +240,38 @@
   </ul>
 </section>
 
-<!-- LEADERSHIP -->
 <section id="leadership" class="light">
   <h3>Our Leadership</h3>
   <div class="grid">
 
     <div class="card">
-      <img src="IMG_7542.JPG" alt="Pastor Banza Mukalay">
+      <img src="pastor banza.jpg" alt="Pastor Banza Mukalay">
       <h5>Pastor Banza Mukalay<br>Founder & Lead Pastor<br>📞 616-589-4793</h5>
     </div>
 
     <div class="card">
-      <img src="IMG_7540.JPG" alt="Assistant Pastor">
+      <img src="pastor.jpg" alt="Assistant Pastor">
       <h5>Assistant Pastor</h5>
     </div>
 
     <div class="card">
-      <img src="IMG_7545.JPG" alt="Pastor and Wife">
+      <img src="pastor/wife.jpg" alt="Pastor and Wife">
       <h5>Pastor & Wife</h5>
     </div>
 
   </div>
 </section>
 
-<!-- YOUTH -->
 <section class="light">
   <h3>Youth Ministry</h3>
   <div class="grid">
     <div class="card">
-      <img src="IMG_3483.JPG" alt="Youth Ministry">
+      <img src="youth.jpg" alt="Youth Ministry">
       <h5>Raising the Next Generation in Christ</h5>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h3>Contact Us</h3>
   <form onsubmit="event.preventDefault(); alert('Thank you for contacting us!');">
@@ -297,7 +282,6 @@
   </form>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 Restoration Community Church | All Rights Reserved</p>
 </footer>
