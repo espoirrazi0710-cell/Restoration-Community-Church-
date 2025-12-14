@@ -75,3 +75,238 @@
     }
 
     .hero a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 32px;
+      background: gold;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 30px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 30px;
+      text-align: center;
+    }
+
+    section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .light {
+      background: #f5f5f5;
+    }
+
+    .section-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .section-content h4 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    .section-content p {
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+    }
+
+    /* SERVICES */
+    .services ul {
+      list-style: none;
+      max-width: 500px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .services li {
+      padding: 10px 0;
+    }
+
+    /* CONTACT FORM */
+    form {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 14px;
+      background: #111;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    form button:hover {
+      background: gold;
+      color: black;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+    }
+
+    @media(max-width: 768px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .section-content {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Restoration Community Church</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#mission">Mission</a>
+      <a href="#services">Services</a>
+      <a href="#pastor">Pastor</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div>
+      <h2>Welcome to Restoration Community Church</h2>
+      <p>Restoring lives, families, and nations through the love and power of Jesus Christ.</p>
+      <a href="#contact">Join Us</a>
+    </div>
+  </section>
+
+  <!-- MISSION & CORE VALUES -->
+  <section id="mission" class="light">
+    <h3>Mission & Core Values</h3>
+    <div class="section-content">
+
+      <h4>Mission Statement</h4>
+      <p>
+        Restoration Community Church exists to glorify God by making disciples of Jesus Christ
+        through biblical teaching, loving fellowship, prayer, and the breaking of bread,
+        empowering believers to live transformed lives and impact their communities with the Gospel.
+      </p>
+
+      <h4>Our Core Values (Acts 2:42)</h4>
+      <p>
+        “They devoted themselves to the apostles’ teaching and to fellowship,
+        to the breaking of bread and to prayer.” — <strong>Acts 2:42</strong>
+      </p>
+
+      <h4>1. Biblical Teaching</h4>
+      <p>
+        We are devoted to the Word of God as the foundation of our faith, doctrine, and daily living.
+        We teach sound, Spirit-led Scripture that equips believers to grow in truth and maturity.
+      </p>
+
+      <h4>2. Fellowship</h4>
+      <p>
+        We value genuine Christian community where believers love, support, and encourage one another,
+        living as one body united in Christ.
+      </p>
+
+      <h4>3. Breaking of Bread</h4>
+      <p>
+        We honor communion and shared meals as expressions of unity, remembrance of Christ’s sacrifice,
+        and a lifestyle of generosity and care for one another.
+      </p>
+
+      <h4>4. Prayer</h4>
+      <p>
+        We are a praying church, fully dependent on God, seeking His presence, power,
+        and guidance in every area of life and ministry.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <h3>Service Times</h3>
+    <ul>
+      <li><strong>Sunday Worship Service</strong> – 1:00 PM to 3:00 PM</li>
+      <li><strong>Saturday Prayer Night</strong> – 7:00 PM</li>
+    </ul>
+  </section>
+
+  <!-- PASTOR -->
+  <section id="pastor" class="light">
+    <h3>Meet Our Pastor</h3>
+    <div class="section-content">
+      <p>
+        <strong>Pastor Banza Mukalay</strong> is the Founder and Lead Pastor of Restoration Community Church.
+        He is originally from the Democratic Republic of Congo and, together with his amazing wife
+        <strong>Nicole</strong> and their family of four children (three girls and one boy),
+        came to the United States as refugees in 2012 from a refugee camp in Tanzania.
+      </p>
+
+      <p>
+        Pastor Banza carries a strong passion for the Gospel, discipleship, prayer,
+        and building a Christ-centered community rooted in biblical truth and love.
+        His life and ministry reflect God’s power to restore, redeem,
+        and transform lives through Jesus Christ.
+      </p>
+
+      <p>
+        📞 <strong>Pastor Contact:</strong> 616-589-4793
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Restoration Community Church | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function sendMessage(e) {
+      e.preventDefault();
+      alert("Thank you for contacting Restoration Community Church. We will get back to you soon.");
+    }
+  </script>
+
+</body>
+</html>
