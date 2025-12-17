@@ -44,25 +44,27 @@
       height: 48px;
     }
 
-    nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  padding: 10px 18px;
-  display: inline-block;
-}
-    nav a:hover {
-      color: gold;
-    }
-  nav {
+/* NAVIGATION */
+.main-nav {
   display: flex;
   align-items: center;
 }
 
-.dropdown > a {
+.main-nav a,
+.dropbtn {
+  color: white;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-size: 0.95rem;
   cursor: pointer;
+  display: inline-block;
 }
-    
+
+.main-nav a:hover,
+.dropbtn:hover {
+  color: gold;
+}
+
 /* DROPDOWN MENU */
 .dropdown {
   position: relative;
@@ -73,26 +75,27 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #111;
+  background: #111;
   min-width: 220px;
   z-index: 9999;
 }
 
 .dropdown-content a {
-  padding: 12px 16px;
   display: block;
+  padding: 12px 16px;
   color: white;
   text-decoration: none;
 }
 
 .dropdown-content a:hover {
-  background-color: gold;
+  background: gold;
   color: black;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
     /* HERO – ACTS 2:42 */
     .hero {
       height: 100vh;
@@ -434,6 +437,7 @@
 
 </body>
 </html>
+
 
 
 
