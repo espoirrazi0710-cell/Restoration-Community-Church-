@@ -115,6 +115,23 @@
 .dropdown-content a:hover {
   background: rgba(255,255,255,0.08);
 }
+
+/* MOBILE/HAMBURGER */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* show dropdown when manually opened (e.g., on mobile tap) */
+.dropdown.open .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
     /* HERO – ACTS 2:42 */
     .hero {
       height: 100vh;
@@ -263,8 +280,35 @@
     }
 
     @media(max-width: 768px) {
-      nav {
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .main-nav {
         display: none;
+        position: absolute;
+        right: 16px;
+        top: 68px;
+        background: #111;
+        padding: 12px 16px;
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a { white-space: nowrap; }
+
+      .dropdown .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        padding: 6px 0;
+        min-width: 160px;
       }
 
       .hero h2 {
@@ -282,8 +326,9 @@
     <img src="logo.png" alt="Restoration Community Church Logo">
     <strong>Restoration Community Church</strong>
   </div>
+  <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Primary">
     <a href="index.html">Home</a>
   <div class="dropdown">
   <span class="dropbtn">About ▾</span>
@@ -453,6 +498,58 @@
 <footer>
   <p>© 2025 Restoration Community Church | All Rights Reserved</p>
 </footer>
+
+<script>
+(function(){
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  const dropdown = document.querySelector('.dropdown');
+  const dropbtn = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', function(e){
+      const open = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  if (dropbtn && dropdown) {
+    dropbtn.addEventListener('click', function(e){
+      // Toggle submenu on tap/click (useful for touch devices)
+      dropdown.classList.toggle('open');
+    });
+  }
+
+  // Close menus when clicking outside
+  document.addEventListener('click', function(e){
+    if (menuToggle && !menuToggle.contains(e.target) && mainNav && !mainNav.contains(e.target)) {
+      mainNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    if (dropdown && !dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      mainNav && mainNav.classList.remove('open');
+      dropdown && dropdown.classList.remove('open');
+      menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Reset mobile state when resizing to desktop
+  window.addEventListener('resize', function(){
+    if (window.matchMedia('(min-width: 769px)').matches) {
+      mainNav && mainNav.classList.remove('open');
+      dropdown && dropdown.classList.remove('open');
+      menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
