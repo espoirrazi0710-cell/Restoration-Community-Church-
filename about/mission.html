@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Mission | Restoration Community Church</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      line-height: 1.7;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      background: #111;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box img {
+      height: 48px;
+    }
+
+    /* MAIN NAV */
+    .main-nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .main-nav a,
+    .dropbtn {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropbtn {
+      padding: 5px 0;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #111;
+      min-width: 220px;
+      padding: 10px 0;
+      border-radius: 6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 18px;
+      color: #fff;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .dropdown-content a.active {
+      color: gold;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .dropdown.open .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      background:
+        linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)),
+        url("../images/backgrounds/acts-2-42.png") center center / cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .page-hero p.breadcrumb {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: gold;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .page-hero p.tagline {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .gold-bar {
+      width: 60px;
+      height: 4px;
+      background: gold;
+      margin: 24px auto 0;
+      border-radius: 2px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 30px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .light {
+      background: #f4f4f4;
+    }
+
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* MISSION STATEMENT */
+    .mission-quote {
+      background: #fff;
+      border-left: 5px solid gold;
+      padding: 28px 32px;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    .mission-body {
+      font-size: 1.02rem;
+      color: #555;
+      line-height: 1.9;
+    }
+
+    /* CORE VALUES */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .value-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border-top: 4px solid gold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .value-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .value-card p {
+      font-size: 0.93rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* PASTOR SECTION */
+    .pastor-section {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 56px;
+      align-items: start;
+      text-align: left;
+    }
+
+    .pastor-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      border-top: 4px solid gold;
+    }
+
+    .pastor-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin: 0 auto 16px;
+      border: 4px solid gold;
+    }
+
+    .pastor-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    .pastor-card p {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .pastor-message h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .pastor-message p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .pastor-signature {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #111;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: #111;
+      color: #fff;
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: gold;
+      color: #111;
+      padding: 14px 36px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: #e6c200;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 14px 36px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: gold;
+      color: gold;
+      transform: translateY(-2px);
+    }
+
+    .scripture-note {
+      margin-top: 36px;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        right: 16px;
+        top: 68px;
+        background: #111;
+        padding: 12px 16px;
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a { white-space: nowrap; }
+
+      .dropdown .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        padding: 6px 0;
+        min-width: 160px;
+      }
+
+      .pastor-section {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .pastor-card {
+        max-width: 260px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-box">
+    <img src="../images/branding/logo.PNG" alt="Restoration Community Church Logo">
+    <strong>Restoration Community Church</strong>
+  </div>
+  <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+
+  <nav class="main-nav" aria-label="Primary">
+    <a href="../index.html">Home</a>
+    <a href="../media.html">Media</a>
+    <div class="dropdown">
+      <span class="dropbtn">About ▾</span>
+      <div class="dropdown-content">
+        <a href="leadership.html">Leadership</a>
+        <a href="beliefs.html">Our Beliefs</a>
+        <a href="mission.html" class="active">Our Mission</a>
+        <a href="international.html">International Ministry</a>
+      </div>
+    </div>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb">About Us</p>
+  <h1>Our Mission</h1>
+  <p class="tagline">Rooted in the Word. Committed to Community. Called to Restore.</p>
+  <div class="gold-bar"></div>
+</div>
+
+<!-- MISSION STATEMENT -->
+<section class="light">
+  <h2>Mission Statement</h2>
+  <p class="section-sub">Why we exist</p>
+  <div class="content">
+    <div class="mission-quote">
+      Restoration Community Church exists to glorify God by making disciples of Jesus Christ
+      through biblical teaching, loving fellowship, prayer, and the breaking of bread —
+      empowering believers to live transformed lives and impact their communities with the Gospel.
+    </div>
+    <p class="mission-body">
+      We believe that every person is created in the image of God and deserves to experience
+      His grace, healing, and purpose. We exist to welcome the broken, strengthen the faithful,
+      and send the equipped — so that our community and the world may be transformed by the
+      power of the Gospel.
+    </p>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section>
+  <h2>Our Core Values</h2>
+  <p class="section-sub">"They devoted themselves to the apostles' teaching and to fellowship, to the breaking of bread and to prayer." — Acts 2:42</p>
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-icon">📖</span>
+      <h3>Biblical Teaching</h3>
+      <p>We are devoted to the Word of God as the foundation of our faith and the guide for our lives.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🤝</span>
+      <h3>Fellowship</h3>
+      <p>We value genuine Christian community — no one walks alone in this family of believers.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🍞</span>
+      <h3>Breaking of Bread</h3>
+      <p>We honor communion and shared meals as sacred expressions of unity in Christ.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🙏</span>
+      <h3>Prayer</h3>
+      <p>We are a praying church, fully dependent on God in every season and situation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PASTOR'S MESSAGE -->
+<section class="light">
+  <h2>A Word From Our Pastor</h2>
+  <p class="section-sub">Pastor Banza Mukalay</p>
+  <div class="pastor-section">
+    <div>
+      <div class="pastor-card">
+        <img src="../images/leadership/pastor-banza.png" alt="Pastor Banza Mukalay" class="pastor-avatar">
+        <h3>Pastor Banza Mukalay</h3>
+        <p>Lead Pastor</p>
+      </div>
+    </div>
+    <div class="pastor-message">
+      <h2>Welcome to Our Family</h2>
+      <p>
+        I am so glad you are here — whether you are returning home to faith or taking
+        your very first step, you have found a place where you truly belong.
+      </p>
+      <p>
+        Our name is not just a title — it is a calling. We believe that God is in the
+        business of restoration. Restoring families. Restoring hope. Restoring dignity
+        to those who have felt forgotten. Every Sunday, every prayer, every act of
+        service we offer is a declaration that no life is too broken for God to redeem.
+      </p>
+      <p>
+        My prayer is that when you walk through our doors, you feel the warmth of a
+        community that will walk alongside you through every season of life. We do not
+        have all the answers, but we are committed to seeking them together — in love,
+        in truth, and in faith.
+      </p>
+      <p>
+        Come as you are. You are welcomed, you are loved, and you are needed here.
+      </p>
+      <p class="pastor-signature">— Pastor Banza Mukalay</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta-section">
+  <h2>Ready to Be Part of the Story?</h2>
+  <p>Join us this Sunday and experience a community built on faith, love, and restoration.</p>
+  <div class="cta-buttons">
+    <a href="../index.html#services" class="btn-primary">Join Us Sunday</a>
+    <a href="../index.html#contact" class="btn-secondary">Get in Touch</a>
+  </div>
+  <p class="scripture-note">"He restores my soul." — Psalm 23:3</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Restoration Community Church | All Rights Reserved</p>
+</footer>
+
+<script>
+(function(){
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  const dropdown = document.querySelector('.dropdown');
+  const dropbtn = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', function(){
+      const open = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  if (dropbtn && dropdown) {
+    dropbtn.addEventListener('click', function(){
+      dropdown.classList.toggle('open');
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    if (menuToggle && !menuToggle.contains(e.target) && mainNav && !mainNav.contains(e.target)) {
+      mainNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    if (dropdown && !dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      mainNav && mainNav.classList.remove('open');
+      dropdown && dropdown.classList.remove('open');
+      menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function(){
+    if (window.matchMedia('(min-width: 769px)').matches) {
+      mainNav && mainNav.classList.remove('open');
+      dropdown && dropdown.classList.remove('open');
+      menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
