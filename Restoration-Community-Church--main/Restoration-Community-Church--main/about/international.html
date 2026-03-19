@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Ministry | Restoration Community Church</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      line-height: 1.7;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box img { height: 48px; }
+
+    .main-nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .main-nav a,
+    .dropbtn {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .dropdown { position: relative; }
+    .dropbtn { padding: 5px 0; }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #111;
+      min-width: 220px;
+      padding: 10px 0;
+      border-radius: 6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 18px;
+      color: #fff;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .dropdown-content a:hover { background: rgba(255,255,255,0.08); }
+    .dropdown-content a.active { color: gold; }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .dropdown.open .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      background:
+        linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)),
+        url("../images/backgrounds/acts-2-42.png") center center / cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .page-hero p.breadcrumb {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: gold;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .page-hero p.tagline {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .gold-bar {
+      width: 60px;
+      height: 4px;
+      background: gold;
+      margin: 24px auto 0;
+      border-radius: 2px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 30px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .light { background: #f4f4f4; }
+
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .content p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
+    /* PHOTO GALLERY */
+    .photo-gallery {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .pastors-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .gallery-item {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      background: white;
+      height: 100%;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item img:hover { opacity: 0.8; }
+
+    .gallery-label {
+      padding: 16px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #333;
+      text-align: center;
+      background: white;
+      border-top: 1px solid #eee;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-label-top {
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #111;
+      text-align: center;
+      background: #f8f8f8;
+      border-bottom: 1px solid #ddd;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-label-top.lowered-name {
+      font-weight: 700;
+      padding-top: 18px;
+      padding-bottom: 8px;
+      align-items: flex-end;
+    }
+
+    .gallery-church {
+      padding: 0 16px 16px;
+      font-size: 0.92rem;
+      color: #666;
+      text-align: center;
+      background: white;
+      font-style: italic;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .church-photo-wrap {
+      padding: 0 16px 16px;
+      background: white;
+      margin-top: auto;
+    }
+
+    .church-photo-wrap img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+      cursor: pointer;
+      border: 1px solid #eee;
+    }
+
+    .church-photo-label {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      text-align: center;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: #111;
+      color: #fff;
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: gold;
+      color: #111;
+      padding: 14px 36px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover { background: #e6c200; transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 14px 36px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover { border-color: gold; color: gold; transform: translateY(-2px); }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 10000;
+      cursor: pointer;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      animation: zoomIn 0.3s ease;
+    }
+
+    .lightbox .lightbox-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: rgba(0,0,0,0.7);
+      padding: 12px 24px;
+      border-radius: 8px;
+    }
+
+    .lightbox .close-btn {
+      position: absolute;
+      top: 20px; right: 20px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(0,0,0,0.5);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .lightbox .close-btn:hover { background: rgba(0,0,0,0.8); }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: inline-block; }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        right: 16px;
+        top: 68px;
+        background: #111;
+        padding: 12px 16px;
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      }
+
+      .main-nav.open { display: flex; }
+      .main-nav a { white-space: nowrap; }
+
+      .dropdown .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        padding: 6px 0;
+        min-width: 160px;
+      }
+
+      .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      .pastors-grid { grid-template-columns: 1fr; }
+
+      .gallery-label,
+      .gallery-label-top,
+      .gallery-church { min-height: 0; }
+
+      section { padding: 50px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-box">
+    <img src="../images/branding/logo.png" alt="Restoration Community Church Logo">
+    <strong>Restoration Community Church</strong>
+  </div>
+  <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+
+  <nav class="main-nav" aria-label="Primary">
+    <a href="../index.html">Home</a>
+    <a href="../media.html">Media</a>
+    <div class="dropdown">
+      <span class="dropbtn">About ▾</span>
+      <div class="dropdown-content">
+        <a href="leadership.html">Leadership</a>
+        <a href="beliefs.html">Our Beliefs</a>
+        <a href="mission.html">Our Mission</a>
+        <a href="international.html" class="active">International Ministry</a>
+      </div>
+    </div>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb">About Us</p>
+  <h1>International Ministry</h1>
+  <p class="tagline">Extending God's Kingdom Beyond Our Borders</p>
+  <div class="gold-bar"></div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="light">
+  <h2>Our Global Ministry</h2>
+  <p class="section-sub">Reaching hearts and communities across continents through visual stories</p>
+  <div class="content">
+    <p>
+      Restoration Community Church is committed to extending the Gospel beyond our local community.
+      Through our international ministry partnerships, we serve and support church plants and communities
+      in Tanzania and the Democratic Republic of Congo (DRC).
+    </p>
+    <p>
+      Led by Pastor Banza Mukalay's vision and with the support of our congregation, we are dedicated to
+      discipleship, community development, and spiritual restoration in these regions.
+    </p>
+  </div>
+</section>
+<!-- END OVERVIEW -->
+
+<!-- AFRICA OVERSEER -->
+<section>
+  <h2>RCC Africa Overseer</h2>
+  <p class="section-sub">Providing leadership and oversight across all RCC churches in Africa</p>
+
+  <div class="photo-gallery" style="max-width: 360px; margin: 0 auto;">
+    <div class="gallery-item">
+      <img src="../images/international/board/stephane-mpanga.jpg" alt="Stephane Mpanga" style="width:100%;height:200px;object-fit:cover;object-position:center top;display:block;cursor:pointer;">
+      <div class="gallery-label-top">Stephane Mpanga</div>
+      <div class="gallery-label">Bishop Representative of Africa - RCC</div>
+    </div>
+  </div>
+</section>
+<!-- END AFRICA OVERSEER -->
+
+<!-- BOARD MEMBERS OF RCC TANZANIA -->
+<section class="light">
+  <h2>Board Members of RCC Tanzania</h2>
+  <p class="section-sub">Leadership serving our congregations in Tanzania</p>
+
+  <div class="photo-gallery pastors-grid">
+
+    <div class="gallery-item">
+      <img src="../images/international/board/bishop_of_tanzania_church.jpg" alt="Bishop Cecil Simbaulanga" style="width:100%;height:200px;object-fit:cover;display:block;cursor:pointer;">
+      <div class="gallery-label-top">Cecil Simbaulanga</div>
+      <div class="gallery-label">Bishop - RCC Tanzania</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../images/international/board/advisor_steven_bakari_selemani.jpg" alt="Advisor Steven Bakari Selemani" style="width:100%;height:200px;object-fit:cover;object-position:center 10%;display:block;cursor:pointer;transform:scale(1.12);transform-origin:center top;">
+      <div class="gallery-label-top">Steven Bakari Selemani</div>
+      <div class="gallery-label">Advisor - RCC Tanzania</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../images/international/board/winnie_tarimo_treasurer.jpg" alt="Winnie Tarimo" style="width:100%;height:200px;object-fit:cover;display:block;cursor:pointer;">
+      <div class="gallery-label-top">Winnie Tarimo</div>
+      <div class="gallery-label">Treasurer - RCC Tanzania</div>
+    </div>
+
+  </div>
+</section>
+<!-- END BOARD MEMBERS OF RCC TANZANIA -->
+
+<!-- PASTORS OF RCC TANZANIA -->
+<section>
+  <h2>Pastors of RCC Tanzania</h2>
+  <p class="section-sub">Spiritual leaders guiding our congregations</p>
+
+  <div class="photo-gallery">
+
+    <div class="gallery-item">
+      <img src="../images/international/pastors/pastor_sayuni_laizer_mbangala_parish.jpg" alt="Pastor Sayuni Laizer Mbangala" style="width:100%;height:200px;object-fit:cover;object-position:center 10%;display:block;cursor:pointer;transform:scale(1.12);transform-origin:center top;">
+      <div class="gallery-label-top lowered-name">Pastor - Sayuni Laizer Mbangala</div>
+      <div class="gallery-church">RCC: Mbangala, Dar es Salaam</div>
+      <div class="church-photo-wrap">
+        <img src="../images/ministries/pastor_sayuni_laizer's_church.jpg" alt="Mbangala Parish Church, Dar es Salaam">
+        <div class="church-photo-label">Church Photo</div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../images/international/pastors/pastor_daud_hassan.jpg" alt="Pastor Daud Hassan" style="width:100%;height:200px;object-fit:cover;object-position:center 10%;display:block;cursor:pointer;transform:scale(1.12);transform-origin:center top;">
+      <div class="gallery-label-top lowered-name">Pastor - Daud Hassan</div>
+      <div class="gallery-church">Church: RCC Kivule, Dar es Salaam</div>
+      <div class="church-photo-wrap">
+        <img src="../images/ministries/pastor_daud_hassan's_church.jpg" alt="RCC Kivule Church, Dar es Salaam">
+        <div class="church-photo-label">Church Photo</div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../images/international/board/advisor_steven_bakari_selemani.jpg" alt="Steven Bakari Selemani" style="width:100%;height:200px;object-fit:cover;object-position:center 10%;display:block;cursor:pointer;transform:scale(1.12);transform-origin:center top;">
+      <div class="gallery-label-top lowered-name">Pastor - Steven Bakari Selemani</div>
+      <div class="gallery-church">Church: RCC Kigoma</div>
+      <div class="church-photo-wrap">
+        <img src="../images/ministries/rcc_kigoma.jpg" alt="RCC Kigoma Church">
+        <div class="church-photo-label">Church Photo</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- END PASTORS OF RCC TANZANIA -->
+
+<!-- BOARD MEMBERS OF RCC CONGO -->
+<section class="light">
+  <h2>Board Members of RCC Congo</h2>
+  <p class="section-sub">Supporting churches and communities in the Democratic Republic of Congo</p>
+
+  <div class="photo-gallery pastors-grid">
+
+    <div class="gallery-item">
+      <img src="../images/ministries/bishop_arley_shimbi.jpeg" alt="Bishop Arley Shimbi" style="width:100%;height:200px;object-fit:cover;object-position:center top;display:block;cursor:pointer;">
+      <div class="gallery-label-top">Bishop Arley Shimbi</div>
+      <div class="gallery-label">Bishop - RCC Congo</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../images/international/board/Ilunga.jpg" alt="Ilunga" style="width:100%;height:200px;object-fit:cover;display:block;cursor:pointer;">
+      <div class="gallery-label-top">Ilunga</div>
+      <div class="gallery-label">Assistant Bishop - RCC Congo</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../images/international/board/placeholder.jpg" alt="Board Member" style="width:100%;height:200px;object-fit:cover;display:block;cursor:pointer;">
+      <div class="gallery-label-top">Name Coming Soon</div>
+      <div class="gallery-label">Board Member - RCC Congo</div>
+    </div>
+
+  </div>
+</section>
+<!-- END BOARD MEMBERS OF RCC CONGO -->
+
+<!-- PASTORS OF RCC CONGO -->
+<section>
+  <h2>Pastors of RCC Congo</h2>
+  <p class="section-sub">Spiritual leaders guiding our congregations in the Democratic Republic of Congo</p>
+
+  <div class="photo-gallery">
+
+    <div class="gallery-item">
+      <img src="../images/international/pastors/pastor-dieu-mercies.jpg" alt="Pastor Dieu Mercies" style="width:100%;height:200px;object-fit:cover;object-position:center top;display:block;cursor:pointer;">
+      <div class="gallery-label-top lowered-name">Pastor - Dieu Mercies</div>
+      <div class="gallery-church">Church: RCC Kipushi, Congo</div>
+      <div class="church-photo-wrap">
+        <img src="../images/ministries/church_rcc_kamisepe_congo.jpg" alt="RCC Kipushi Church">
+        <div class="church-photo-label">Church Photo Coming Soon</div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../images/international/pastors/timothe.jpg" alt="Pastor Timothe" style="width:100%;height:200px;object-fit:cover;object-position:center top;display:block;cursor:pointer;">
+      <div class="gallery-label-top lowered-name">Pastor - Timothe</div>
+      <div class="gallery-church">Church: RCC Kamisepe, Congo</div>
+      <div class="church-photo-wrap">
+        <img src="../images/ministries/rcc-kamisepe.jpg" alt="RCC Kamisepe Church">
+        <div class="church-photo-label">Church Photo Coming Soon</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- END PASTORS OF RCC CONGO -->
+
+<!-- CALL TO ACTION -->
+<section class="cta-section">
+  <h2>Be Part of Our Global Ministry</h2>
+  <p>Whether through prayer, financial support, or volunteering, you can help us extend God's kingdom around the world.</p>
+  <div class="cta-buttons">
+    <a href="../index.html#contact" class="btn-primary">Get Involved</a>
+    <a href="../index.html" class="btn-secondary">Learn More</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Restoration Community Church | All Rights Reserved</p>
+</footer>
+
+<!-- LIGHTBOX MODAL -->
+<div id="lightbox" class="lightbox">
+  <span class="close-btn">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption" class="lightbox-caption"></div>
+</div>
+
+<script>
+(function(){
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  const dropdown = document.querySelector('.dropdown');
+  const dropbtn = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', function(){
+      const open = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  if (dropbtn && dropdown) {
+    dropbtn.addEventListener('click', function(){
+      dropdown.classList.toggle('open');
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    if (menuToggle && !menuToggle.contains(e.target) && mainNav && !mainNav.contains(e.target)) {
+      mainNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    if (dropdown && !dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      mainNav && mainNav.classList.remove('open');
+      dropdown && dropdown.classList.remove('open');
+      menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  window.addEventListener('resize', function(){
+    if (window.matchMedia('(min-width: 769px)').matches) {
+      mainNav && mainNav.classList.remove('open');
+      dropdown && dropdown.classList.remove('open');
+      menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // LIGHTBOX
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.querySelector('.close-btn');
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', function() {
+      const galleryItem = this.closest('.gallery-item');
+      let caption = '';
+
+      if (galleryItem) {
+        const topLabel = galleryItem.querySelector('.gallery-label-top');
+        const bottomLabel = galleryItem.querySelector('.gallery-label');
+        const churchLabel = galleryItem.querySelector('.gallery-church');
+        if (topLabel) caption += topLabel.textContent;
+        if (bottomLabel) { if (caption) caption += ' - '; caption += bottomLabel.textContent; }
+        if (churchLabel) { if (caption) caption += ' - '; caption += churchLabel.textContent; }
+      }
+
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt;
+      lightboxCaption.textContent = caption || this.alt;
+      lightbox.classList.add('active');
+    });
+  });
+
+  closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) lightbox.classList.remove('active');
+  });
+
+})();
+</script>
+
+</body>
+</html>
