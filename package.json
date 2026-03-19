@@ -1,0 +1,13 @@
+{
+  "name": "restoration-community-church",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "sass": "sass assets/sass:assets/css --no-source-map --style=expanded",
+    "watch": "sass --watch assets/sass:assets/css",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "sass": "^1.79.0"
+  }
+}
