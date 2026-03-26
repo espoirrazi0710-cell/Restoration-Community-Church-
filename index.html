@@ -134,7 +134,7 @@
 }
     /* HERO – ACTS 2:42 */
     .hero {
-      height: 100vh;
+      height: 60vh;
       background:
         linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
         url("images/backgrounds/acts-2-42.png") center center / cover no-repeat;
@@ -156,6 +156,47 @@
       max-width: 800px;
       margin: auto;
       font-style: italic;
+    }
+
+    /* WELCOME */
+    .welcome {
+      padding: 50px 30px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    .welcome h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .welcome p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+
+    .welcome-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .welcome-links a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .welcome-links a:hover {
+      background: gold;
+      color: #111;
     }
 
     /* SECTIONS */
@@ -314,6 +355,12 @@
       .hero h2 {
         font-size: 2.2rem;
       }
+
+      .welcome-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
     }
   </style>
 </head>
@@ -329,8 +376,17 @@
   <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
   <nav class="main-nav" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="media.html">Media</a>
+    <a href="#home">Home</a>
+
+  <div class="dropdown">
+  <span class="dropbtn">Media ▾</span>
+  <div class="dropdown-content">
+    <a href="media.html">Sermons</a>
+    <a href="videos/">Videos</a>
+    <a href="documents/">Documents</a>
+  </div>
+</div>
+
   <div class="dropdown">
   <span class="dropbtn">About ▾</span>
   <div class="dropdown-content">
@@ -338,9 +394,10 @@
     <a href="about/beliefs.html">Our Beliefs</a>
     <a href="about/mission.html">Our Mission</a>
     <a href="about/international.html">International Ministry</a>
+    <a href="about/youth.html">Youth Ministry</a>
   </div>
 </div>
-    <a href="#services">Services</a>
+
     
     <a href="#contact">Contact</a>
   </nav>
@@ -356,6 +413,21 @@
       to the breaking of bread and to prayer.”<br><br>
       <strong>Acts 2:42</strong>
     </p>
+  </div>
+</section>
+
+<!-- WELCOME -->
+<section class="welcome">
+  <div class="container">
+    <h3>Welcome</h3>
+    <p>Service times are 1:00 PM to 3:00 PM on Sundays. Saturday Prayer Night at 7:00 PM.</p>
+    <p>We are a community devoted to biblical teaching, fellowship, breaking bread, and prayer. Whoever you are, whatever your struggle, you are welcome here.</p>
+    <div class="welcome-links">
+      <a href="about.html">I'm New</a>
+    <div class="dropdown">`n  <span class="dropbtn">Media ?</span>`n  <div class="dropdown-content">`n    <a href="media.html">Sermons</a>`n    <a href="videos/">Videos</a>`n    <a href="documents/">Documents</a>`n  </div>`n</div>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </section>
 

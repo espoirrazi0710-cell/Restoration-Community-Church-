@@ -199,6 +199,66 @@
       text-align: center;
     }
 
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.2s;
+      object-fit: contain;
+      background: #f4f4f4;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
+      cursor: pointer;
+    }
+
+    .gallery-item p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      text-align: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      margin-top: 5%;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
     .video-grid {
       max-width: 1100px;
       margin: 0 auto;
@@ -482,7 +542,13 @@
 
   <nav class="main-nav" aria-label="Primary">
     <a href="index.html">Home</a>
-    <a href="media.html" style="color: gold;">Media</a>
+    <div class="dropdown">
+      <span class="dropbtn">Media ▾</span>
+      <div class="dropdown-content">
+        <a href="media.html" class="active">Sermons</a>
+        <a href="Church/">
+      </div>
+    </div>
     <div class="dropdown">
       <span class="dropbtn">About ▾</span>
       <div class="dropdown-content">
@@ -490,9 +556,10 @@
         <a href="about/beliefs.html">Our Beliefs</a>
         <a href="about/mission.html">Our Mission</a>
         <a href="about/international.html">International Ministry</a>
+
       </div>
     </div>
-    <a href="index.html#services">Services</a>
+    
     <a href="index.html#contact">Contact</a>
   </nav>
 </header>
@@ -512,6 +579,7 @@
   <button class="tab-btn" data-tab="prayers">Prayers</button>
   <button class="tab-btn" data-tab="international">International Ministry</button>
   <button class="tab-btn" data-tab="events">Events & Announcements</button>
+  <button class="tab-btn" data-tab="gallery">Gallery</button>
 </div>
 
 <!-- SERMONS -->
@@ -740,6 +808,64 @@
 </div>
 <!-- END EVENTS -->
 
+<!-- GALLERY -->
+<div class="media-section" id="tab-gallery">
+  <h2>Gallery</h2>
+  <p class="section-sub">Photos from our church community and events</p>
+  <div class="gallery-grid">
+    <div class='gallery-item'><img src='images/church media/1 (1).jpeg' alt='Church Photo 1' onclick='openLightbox(this)'><p>Church Photo 1</p></div>
+<div class='gallery-item'><img src='images/church media/1 (2).jpeg' alt='Church Photo 2' onclick='openLightbox(this)'><p>Church Photo 2</p></div>
+<div class='gallery-item'><img src='images/church media/1 (3).jpeg' alt='Church Photo 3' onclick='openLightbox(this)'><p>Church Photo 3</p></div>
+<div class='gallery-item'><img src='images/church media/1 (4).jpeg' alt='Church Photo 4' onclick='openLightbox(this)'><p>Church Photo 4</p></div>
+<div class='gallery-item'><img src='images/church media/1 (5).jpeg' alt='Church Photo 5' onclick='openLightbox(this)'><p>Church Photo 5</p></div>
+<div class='gallery-item'><img src='images/church media/1 (6).jpeg' alt='Church Photo 6' onclick='openLightbox(this)'><p>Church Photo 6</p></div>
+<div class='gallery-item'><img src='images/church media/1 (7).jpeg' alt='Church Photo 7' onclick='openLightbox(this)'><p>Church Photo 7</p></div>
+<div class='gallery-item'><img src='images/church media/1 (8).jpeg' alt='Church Photo 8' onclick='openLightbox(this)'><p>Church Photo 8</p></div>
+<div class='gallery-item'><img src='images/church media/1 (9).jpeg' alt='Church Photo 9' onclick='openLightbox(this)'><p>Church Photo 9</p></div>
+<div class='gallery-item'><img src='images/church media/1 (10).jpeg' alt='Church Photo 10' onclick='openLightbox(this)'><p>Church Photo 10</p></div>
+<div class='gallery-item'><img src='images/church media/1 (11).jpeg' alt='Church Photo 11' onclick='openLightbox(this)'><p>Church Photo 11</p></div>
+<div class='gallery-item'><img src='images/church media/1 (12).jpeg' alt='Church Photo 12' onclick='openLightbox(this)'><p>Church Photo 12</p></div>
+<div class='gallery-item'><img src='images/church media/1 (13).jpeg' alt='Church Photo 13' onclick='openLightbox(this)'><p>Church Photo 13</p></div>
+<div class='gallery-item'><img src='images/church media/1 (14).jpeg' alt='Church Photo 14' onclick='openLightbox(this)'><p>Church Photo 14</p></div>
+<div class='gallery-item'><img src='images/church media/1 (15).jpeg' alt='Church Photo 15' onclick='openLightbox(this)'><p>Church Photo 15</p></div>
+<div class='gallery-item'><img src='images/church media/1 (16).jpeg' alt='Church Photo 16' onclick='openLightbox(this)'><p>Church Photo 16</p></div>
+<div class='gallery-item'><img src='images/church media/1 (17).jpeg' alt='Church Photo 17' onclick='openLightbox(this)'><p>Church Photo 17</p></div>
+<div class='gallery-item'><img src='images/church media/1 (18).jpeg' alt='Church Photo 18' onclick='openLightbox(this)'><p>Church Photo 18</p></div>
+<div class='gallery-item'><img src='images/church media/1 (19).jpeg' alt='Church Photo 19' onclick='openLightbox(this)'><p>Church Photo 19</p></div>
+<div class='gallery-item'><img src='images/church media/1 (20).jpeg' alt='Church Photo 20' onclick='openLightbox(this)'><p>Church Photo 20</p></div>
+<div class='gallery-item'><img src='images/church media/1 (21).jpeg' alt='Church Photo 21' onclick='openLightbox(this)'><p>Church Photo 21</p></div>
+<div class='gallery-item'><img src='images/church media/1 (22).jpeg' alt='Church Photo 22' onclick='openLightbox(this)'><p>Church Photo 22</p></div>
+<div class='gallery-item'><img src='images/church media/1 (23).jpeg' alt='Church Photo 23' onclick='openLightbox(this)'><p>Church Photo 23</p></div>
+<div class='gallery-item'><img src='images/church media/1 (24).jpeg' alt='Church Photo 24' onclick='openLightbox(this)'><p>Church Photo 24</p></div>
+<div class='gallery-item'><img src='images/church media/1 (25).jpeg' alt='Church Photo 25' onclick='openLightbox(this)'><p>Church Photo 25</p></div>
+<div class='gallery-item'><img src='images/church media/1 (26).jpeg' alt='Church Photo 26' onclick='openLightbox(this)'><p>Church Photo 26</p></div>
+<div class='gallery-item'><img src='images/church media/1 (27).jpeg' alt='Church Photo 27' onclick='openLightbox(this)'><p>Church Photo 27</p></div>
+<div class='gallery-item'><img src='images/church media/1 (28).jpeg' alt='Church Photo 28' onclick='openLightbox(this)'><p>Church Photo 28</p></div>
+<div class='gallery-item'><img src='images/church media/1 (29).jpeg' alt='Church Photo 29' onclick='openLightbox(this)'><p>Church Photo 29</p></div>
+<div class='gallery-item'><img src='images/church media/1 (30).jpeg' alt='Church Photo 30' onclick='openLightbox(this)'><p>Church Photo 30</p></div>
+<div class='gallery-item'><img src='images/church media/1 (31).jpeg' alt='Church Photo 31' onclick='openLightbox(this)'><p>Church Photo 31</p></div>
+<div class='gallery-item'><img src='images/church media/1 (32).jpeg' alt='Church Photo 32' onclick='openLightbox(this)'><p>Church Photo 32</p></div>
+<div class='gallery-item'><img src='images/church media/1 (33).jpeg' alt='Church Photo 33' onclick='openLightbox(this)'><p>Church Photo 33</p></div>
+<div class='gallery-item'><img src='images/church media/1 (34).jpeg' alt='Church Photo 34' onclick='openLightbox(this)'><p>Church Photo 34</p></div>
+<div class='gallery-item'><img src='images/church media/1 (35).jpeg' alt='Church Photo 35' onclick='openLightbox(this)'><p>Church Photo 35</p></div>
+<div class='gallery-item'><img src='images/church media/1 (36).jpeg' alt='Church Photo 36' onclick='openLightbox(this)'><p>Church Photo 36</p></div>
+<div class='gallery-item'><img src='images/church media/1 (37).jpeg' alt='Church Photo 37' onclick='openLightbox(this)'><p>Church Photo 37</p></div>
+<div class='gallery-item'><img src='images/church media/1 (38).jpeg' alt='Church Photo 38' onclick='openLightbox(this)'><p>Church Photo 38</p></div>
+<div class='gallery-item'><img src='images/church media/1 (39).jpeg' alt='Church Photo 39' onclick='openLightbox(this)'><p>Church Photo 39</p></div>
+<div class='gallery-item'><img src='images/church media/1 (40).jpeg' alt='Church Photo 40' onclick='openLightbox(this)'><p>Church Photo 40</p></div>
+<div class='gallery-item'><img src='images/church media/1 (41).jpeg' alt='Church Photo 41' onclick='openLightbox(this)'><p>Church Photo 41</p></div>
+<div class='gallery-item'><img src='images/church media/1 (42).jpeg' alt='Church Photo 42' onclick='openLightbox(this)'><p>Church Photo 42</p></div>
+<div class='gallery-item'><img src='images/church media/1 (43).jpeg' alt='Church Photo 43' onclick='openLightbox(this)'><p>Church Photo 43</p></div>
+<div class='gallery-item'><img src='images/church media/1 (44).jpeg' alt='Church Photo 44' onclick='openLightbox(this)'><p>Church Photo 44</p></div>
+<div class='gallery-item'><img src='images/church media/1 (45).jpeg' alt='Church Photo 45' onclick='openLightbox(this)'><p>Church Photo 45</p></div>
+<div class='gallery-item'><img src='images/church media/1 (46).jpeg' alt='Church Photo 46' onclick='openLightbox(this)'><p>Church Photo 46</p></div>
+<div class='gallery-item'><img src='images/church media/1 (47).jpeg' alt='Church Photo 47' onclick='openLightbox(this)'><p>Church Photo 47</p></div>
+<div class='gallery-item'><img src='images/church media/1 (48).jpeg' alt='Church Photo 48' onclick='openLightbox(this)'><p>Church Photo 48</p></div>
+<div class='gallery-item'><img src='images/church media/1 (49).jpeg' alt='Church Photo 49' onclick='openLightbox(this)'><p>Church Photo 49</p></div>
+  </div>
+</div>
+<!-- END GALLERY -->
+
 <!-- CTA -->
 <section class="cta-section">
   <h2>Want to Stay Connected?</h2>
@@ -834,8 +960,26 @@
     });
   });
 
+  // LIGHTBOX FUNCTIONALITY
+  function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.style.display = 'block';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+
 })();
 </script>
+
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 </body>
 </html>
